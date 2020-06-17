@@ -20,10 +20,22 @@ class App extends Component {
           });
   }
 
+  deleteCharHandler = (index) => {
+        // the below statement will convert a string into an array
+        const text = this.state.userInput.split('');
+        text.splice(index,1);
+        //the below statement will convert the array back to string
+        const updatedText = text.join('');
+        this.setState({
+            userInput:updatedText
+        });
+
+  }
+
   render() {
 
     const charList = this.state.userInput.split('').map(ch, index => {
-        return <CharComponent character={ch} key = {index}/>
+        return <CharComponent character={ch} key = {index}  clicked={() => this.deleteCharHandler(index)}/>
 
     })
     return (
