@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
 import ValidationComponent from './Validation/ValidationComponent';
+import CharComponent from './CharComponent/CharComponent';
 
 class App extends Component {
 
     state = {
         userInput: '',
-        length:null
+        length: null
     }
 
   inputChangeHandler= (event) =>{
@@ -20,12 +21,19 @@ class App extends Component {
   }
 
   render() {
+
+    const charList = this.state.userInput.map(ch => {
+        return <CharComponent character={ch}/>
+
+    })
     return (
       <div className="App">
           <h2>
               <input type={"text"} onChange={this.inputChangeHandler} value={this.state.userInput}/>
               <p>{this.state.userInput}</p>
               <ValidationComponent inputLength ={this.state.length}/>
+              {charList}
+              {/*<CharComponent boxit = {this.state.userInput}/>*/}
           </h2>
       </div>
     );
