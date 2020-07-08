@@ -1,1 +1,2 @@
-POC for conditional execution and flexible lists.
+- takes input from user and splits the characters into individual boxes
+(using flexible lists)
